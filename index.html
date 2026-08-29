@@ -1,0 +1,1436 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akari Sound</title>
+  <meta name="description" content="아카리 사운드 — 서울 강남 프리미엄 보컬 레코딩 스튜디오 | Premium vocal recording studio in Seoul">
+
+  <!-- 구글 폰트: 영문 디스플레이 + 한국어 본문 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ============================================================
+     내비게이션 바 — 로고, 메뉴 링크, 언어/테마 토글
+============================================================ -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <!-- 아카리 로고 — Ai 인라인 SVG 모노그램 (오렌지 점) -->
+    <svg viewBox="0 0 42 52" fill="none" aria-hidden="true">
+      <line x1="8"  y1="48" x2="24" y2="6"  stroke="#E4CFA7" stroke-width="2" stroke-linecap="round"/>
+      <line x1="28" y1="50" x2="28" y2="24" stroke="#E4CFA7" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="31" cy="16" r="5" fill="#C45228"/>
+    </svg>
+    <span class="nav-logo-text">AKARI SOUND</span>
+  </a>
+
+  <!-- 데스크탑 메뉴 링크 -->
+  <ul class="nav-links" role="list">
+    <li><a href="#about">         <span class="kr">스튜디오</span><span class="en">Studio</span></a></li>
+    <li><a href="#signature-chain"><span class="kr">장비</span>   <span class="en">Gear</span></a></li>
+    <li><a href="#pricing">       <span class="kr">요금</span>   <span class="en">Pricing</span></a></li>
+    <li><a href="#event">         <span class="kr">이벤트</span> <span class="en">Event</span></a></li>
+    <li><a href="#reviews">       <span class="kr">후기</span>   <span class="en">Reviews</span></a></li>
+    <li><a href="#contact">       <span class="kr">예약</span>   <span class="en">Book</span></a></li>
+  </ul>
+
+  <div class="nav-controls">
+    <!-- 언어 전환 버튼 (KR / EN) -->
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button class="lang-btn active" id="btn-kr" onclick="setLang('kr')" aria-label="한국어">KR</button>
+      <button class="lang-btn"        id="btn-en" onclick="setLang('en')" aria-label="English">EN</button>
+    </div>
+    <!-- 라이트/다크 테마 토글 -->
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()" aria-label="Toggle theme">☽</button>
+    <!-- 모바일 햄버거 메뉴 -->
+    <button class="nav-hamburger" id="hamburger" aria-label="메뉴 열기" onclick="openDrawer()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- 모바일 드로어 메뉴 -->
+<div id="nav-drawer" role="dialog" aria-label="모바일 메뉴">
+  <button class="drawer-close" onclick="closeDrawer()" aria-label="메뉴 닫기">✕</button>
+  <a href="#about"          onclick="closeDrawer()"><span class="kr">스튜디오</span><span class="en">Studio</span></a>
+  <a href="#signature-chain" onclick="closeDrawer()"><span class="kr">장비</span>   <span class="en">Gear</span></a>
+  <a href="#pricing"        onclick="closeDrawer()"><span class="kr">요금</span>   <span class="en">Pricing</span></a>
+  <a href="#event"          onclick="closeDrawer()"><span class="kr">이벤트</span><span class="en">Event</span></a>
+  <a href="#reviews"        onclick="closeDrawer()"><span class="kr">후기</span>   <span class="en">Reviews</span></a>
+  <a href="#notice"         onclick="closeDrawer()"><span class="kr">공지</span>   <span class="en">Notice</span></a>
+  <a href="#faq"            onclick="closeDrawer()">FAQ</a>
+  <a href="#contact"        onclick="closeDrawer()"><span class="kr">예약/연락</span><span class="en">Book</span></a>
+</div>
+
+
+<!-- ============================================================
+     01 히어로 — 전체 화면 스튜디오 사진 + 타이틀
+============================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="hero-eyebrow">AKARI SOUND — SEOUL, KOREA</p>
+    <h1 class="hero-title">
+      <!-- 히어로 타이틀 — 내용 입력 예정 -->
+      <span class="kr">빛이 <em>머무는</em><br>자리</span>
+      <span class="en">Where<br>Light <em>Stays</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span class="kr">서울 강남, 빛이 머무는 프리미엄 보컬 레코딩 스튜디오.<br>아카리 사운드에서 당신의 목소리를 기록합니다.</span>
+      <span class="en">Premium vocal recording studio in Gangnam, Seoul.<br>Where your voice finds its light.</span>
+    </p>
+    <a href="#contact" class="hero-cta">
+      <span class="kr">예약 문의</span>
+      <span class="en">Book a Session</span>
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M2 6h8M7 3l3 3-3 3"/>
+      </svg>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>scroll</span>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     02 어바웃 — 스튜디오 스토리 (슬라이드 1/30, 2/30)
+============================================================ -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">01</span>
+      <span class="section-label kr">스튜디오 스토리</span>
+      <span class="section-label en">Studio Story</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="about-grid">
+      <!-- 첫 번째 스토리 블록 — 슬라이드 1/30 내용 -->
+      <div class="about-block reveal reveal-d1">
+        <h2 class="about-headline">
+          <span class="kr">Akari,<br>빛이 머무는 자리</span>
+          <span class="en">Akari,<br>Where Light Stays</span>
+        </h2>
+        <div class="about-body">
+          <span class="kr">
+            <p>아카리 사운드는 일본의 조각가 <strong>이사무 노구치의 'Akari'</strong>에서 모티브를 얻었습니다.</p>
+            <p>노구치가 빛 자체보다 빛이 공간 안에 머무는 방식과 분위기를 설계했듯, 아카리 사운드 또한 단순히 좋은 소리(Correct Answer)를 만드는 것을 넘어, 음악이 <em>감정과 여운</em>으로 기억될 수 있는 사운드를 지향합니다.</p>
+          </span>
+          <span class="en">
+            <p>Akari Sound takes its name from the works of Japanese sculptor <strong>Isamu Noguchi</strong>.</p>
+            <p>Just as Noguchi designed not the light itself, but <em>the way it lingers in a space</em> — Akari Sound goes beyond technically correct sound, pursuing music that is remembered through emotion and resonance.</p>
+          </span>
+        </div>
+      </div>
+      <!-- 두 번째 스토리 블록 — 슬라이드 2/30 내용 -->
+      <div class="about-block reveal reveal-d2">
+        <h2 class="about-headline">
+          <span class="kr">따뜻한 질감,<br>섬세한 디테일</span>
+          <span class="en">Warm Texture,<br>Precise Detail</span>
+        </h2>
+        <div class="about-body">
+          <span class="kr">
+            <p>진공관 마이크와 아날로그 아웃보드가 만들어내는 <strong>따뜻한 질감</strong>, 그리고 정교한 모니터링 시스템을 통해 섬세하게 다듬어지는 디테일까지.</p>
+            <p>아티스트 본연의 색과 감정이 가장 자연스럽게 드러날 수 있도록 사운드를 담아내고 디자인합니다.</p>
+            <p>빛 하나로 공간의 분위기가 달라지듯, <em>좋은 사운드</em>는 음악이 전달되는 방식을 완전히 바꿉니다.</p>
+          </span>
+          <span class="en">
+            <p>The <strong>warm texture</strong> of tube microphones and analog outboard gear, refined further through a precision monitoring system.</p>
+            <p>We design and capture sound so each artist's unique color and emotion emerges as naturally as possible.</p>
+            <p>Just as a single light transforms a room, <em>great sound</em> completely changes how music is received.</p>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     03 시그니처 체인 — UA Bock 251 (슬라이드 4/30, 7/30)
+============================================================ -->
+<section id="signature-chain" class="section section-warm">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">02</span>
+      <span class="section-label">Akari Signature Chain</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="chain-layout">
+      <div class="chain-img-wrap reveal reveal-d1">
+        <img src="images/5-31.png" alt="Universal Audio Bock 251 마이크" loading="lazy">
+      </div>
+      <div class="reveal reveal-d2">
+        <!-- 내용 입력 예정 -->
+        <span class="chain-tag kr">아카리 사운드 시그니처 체인의 핵심</span>
+        <span class="chain-tag en">Core of the Akari Signature Chain</span>
+        <h2 class="chain-name">Universal Audio<br>Bock 251</h2>
+        <p class="chain-sub">
+          <span class="kr">전설적인 ELA M 251 사운드를 기반으로, 월드클래스 마이크 디자이너 David Bock의 재해석을 통해 완성된 <strong>모던 빈티지 튜브 콘덴서 마이크</strong>. 전 세계 스튜디오 스탠다드로 구성된 하이엔드 아날로그 라인으로 당신의 목소리를 담습니다.</span>
+          <span class="en">A modern vintage tube condenser microphone built upon the legendary ELA M 251 sound, reinterpreted by world-class mic designer David Bock. Your voice, captured through a high-end analog signal chain that defines the global studio standard.</span>
+        </p>
+        <!-- 시그널 체인 플로우 -->
+        <div class="chain-flow">
+          <span class="chain-node">UA Bock 251</span>
+          <span class="chain-arrow">→</span>
+          <span class="chain-node">AMS Neve 1073 SPX</span>
+          <span class="chain-arrow">→</span>
+          <span class="chain-node">Tube-Tech CL 1B</span>
+          <span class="chain-arrow">→</span>
+          <span class="chain-node">Prism Sound Lyra 2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     04 아티스트 — U87 Ai 사용 유명 아티스트 (슬라이드 5/30)
+============================================================ -->
+<section id="artists" class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">03</span>
+      <span class="section-label kr">아티스트 레퍼런스</span>
+      <span class="section-label en">Artist Reference</span>
+      <span class="section-rule"></span>
+    </div>
+    <!-- 아티스트 이름 나열 -->
+    <h2 class="artists-names reveal">
+      <span class="kr">EXO 백현 · WOODZ · ZICO<br>청하 · iKON 김동혁 · 방예담 · BTOB</span>
+      <span class="en">EXO Baekhyun · WOODZ · ZICO<br>CHUNG HA · iKON Donghyuk · Bang Yedam · BTOB</span>
+    </h2>
+    <p class="artists-sub reveal reveal-d1">
+      <span class="kr">이들이 선택한 Neumann U87 Ai 마이크가 아카리 사운드에도 있습니다. 국내 최고의 아티스트들과 HYBE 세션에서도 애용하는 레코딩 스탠다드를 직접 경험해 보세요.</span>
+      <span class="en">The same Neumann U87 Ai chosen by these world-class artists is right here at Akari Sound. Experience the recording standard favored by Korea's top artists and HYBE sessions.</span>
+    </p>
+    <p class="artists-cta-text reveal reveal-d2">
+      <span class="kr">"당신의 목소리도, 그들과 같은 마이크로."</span>
+      <span class="en">"Your voice. Their microphone."</span>
+    </p>
+    <!-- 아티스트 사진 슬라이드 이미지 -->
+    <div class="artists-image-wrap reveal reveal-d3">
+      <img src="images/6-31.png" alt="EXO 백현, WOODZ, ZICO, 청하, iKON 김동혁, 방예담, BTOB" loading="lazy">
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     05 Neumann U87 Ai — 마이크 스펙 상세 (슬라이드 8/30)
+============================================================ -->
+<section id="u87" class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">04</span>
+      <span class="section-label">Neumann U87 Ai</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="u87-layout">
+      <div class="reveal reveal-d1">
+        <img src="images/9-31.png" alt="Neumann U87 Ai" style="width:100%;height:500px;object-fit:cover;object-position:top center;border-radius:var(--radius);" loading="lazy">
+      </div>
+      <div class="reveal reveal-d2">
+        <h2 class="section-title">
+          <span class="kr">레코딩 스탠다드,<br><em>Neumann U87 Ai</em></span>
+          <span class="en">The Recording Standard,<br><em>Neumann U87 Ai</em></span>
+        </h2>
+        <div class="divider"></div>
+        <p style="font-size:0.9rem;color:var(--text-sub);line-height:1.9;margin-bottom:var(--sp-md)">
+          <span class="kr">1967년 첫 출시 이래 전 세계 프로 레코딩의 기준이 된 FET 콘덴서 마이크. 중역의 따뜻함과 고역의 명료함이 균형을 이루며, 보컬의 자연스러운 색감을 그대로 포착합니다.</span>
+          <span class="en">The FET condenser microphone that has defined professional recording worldwide since 1967. It balances warmth in the mids with clarity in the highs, capturing the natural character of any voice.</span>
+        </p>
+        <!-- 스펙 카드 3종 -->
+        <div class="u87-spec-cards">
+          <div class="spec-card">
+            <p class="spec-card-title kr">3종 지향 패턴</p>
+            <p class="spec-card-title en">3 Polar Patterns</p>
+            <p class="spec-card-sub kr">단일·무지향·양방향</p>
+            <p class="spec-card-sub en">Cardioid · Omni · Fig-8</p>
+          </div>
+          <div class="spec-card">
+            <p class="spec-card-title kr">초저 자기 노이즈</p>
+            <p class="spec-card-title en">Ultra-Low Noise</p>
+            <p class="spec-card-sub kr">12dB-A</p>
+            <p class="spec-card-sub en">12dB-A</p>
+          </div>
+          <div class="spec-card">
+            <p class="spec-card-title kr">57년 검증 역사</p>
+            <p class="spec-card-title en">57 Years Verified</p>
+            <p class="spec-card-sub kr">전 세계 스튜디오 스탠다드</p>
+            <p class="spec-card-sub en">Global Studio Standard</p>
+          </div>
+        </div>
+        <!-- Tube 대비 비교 -->
+        <div class="u87-vs">
+          <p class="u87-vs-title">vs TUBE (Manley Reference / LCT940)</p>
+          <ul>
+            <li class="kr">투명하고 정확한 주파수 재현 — 원음 그대로의 레코딩 퀄리티</li>
+            <li class="en">Transparent, accurate frequency reproduction — recording true to the source</li>
+            <li class="kr">안정적이고 일관된 저노이즈 퍼포먼스 — 섬세한 디테일까지 포착</li>
+            <li class="en">Stable, consistent low-noise performance — capturing every subtle nuance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     06 모니터링 — Amphion Two18 + Billboard 엔지니어 (슬라이드 12/30)
+============================================================ -->
+<section id="monitoring" class="section section-warm">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">05</span>
+      <span class="section-label">Akari Monitoring</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="monitoring-header reveal">
+      <p class="monitoring-model">AMPHION TWO18 | AMP700</p>
+      <h2 class="section-title">
+        <span class="kr">메이저 레코드의 기준이 된 모니터<br><em>"Beautifully Honest"</em></span>
+        <span class="en">The Monitor That Defines Major-Label Standards<br><em>"Beautifully Honest"</em></span>
+      </h2>
+      <div class="billboard-badge">
+        <span>★ BILLBOARD MUSIC AWARDS</span>
+        <span class="kr">빌보드 상위권이 선택한 레퍼런스</span>
+        <span class="en">The Reference of Billboard Chart-Toppers</span>
+      </div>
+    </div>
+    <!-- 빌보드 엔지니어 4명 카드 -->
+    <div class="engineers-grid">
+      <div class="engineer-card reveal reveal-d1">
+        <p class="engineer-name">Josh Gudwin</p>
+        <p class="engineer-artists">Justin Bieber / Dua Lipa / Bad Bunny</p>
+      </div>
+      <div class="engineer-card reveal reveal-d2">
+        <p class="engineer-name">Mike Dean</p>
+        <p class="engineer-artists">Travis Scott / Kanye West / The Weeknd</p>
+      </div>
+      <div class="engineer-card reveal reveal-d3">
+        <p class="engineer-name">Rob Kinelski</p>
+        <p class="engineer-artists">Billie Eilish / Ariana Grande</p>
+      </div>
+      <div class="engineer-card reveal reveal-d4">
+        <p class="engineer-name">Dave Pensado</p>
+        <p class="engineer-artists">Michael Jackson / Beyoncé / Rihanna</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     07 스튜디오 인프라 — 3대 핵심 시설 (슬라이드 16/30)
+============================================================ -->
+<section id="infra" class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">06</span>
+      <span class="section-label kr">설계된 사운드 환경</span>
+      <span class="section-label en">Engineered Sound Environment</span>
+      <span class="section-rule"></span>
+    </div>
+    <h2 class="infra-headline reveal">
+      <span class="kr">어둡고 답답한 지하 작업실이라는<br>인식에 <strong>의문을 던지다</strong></span>
+      <span class="en">Challenging the image of <strong>the dark, cramped underground studio</strong></span>
+    </h2>
+    <p class="infra-tagline reveal reveal-d1">
+      <span class="kr">쾌적한 지상 스튜디오, 구룡산 뷰</span>
+      <span class="en">Above-ground studio with natural light and Guryong Mountain view</span>
+    </p>
+    <div class="infra-cards">
+      <!-- 인프라 카드 1: 컨트롤룸·부스 완전 분리 -->
+      <div class="infra-card reveal reveal-d1">
+        <div class="infra-icon">🚪</div>
+        <p class="infra-card-title">
+          <span class="kr">컨트롤룸·부스 완전 분리</span>
+          <span class="en">Isolated Control Room &amp; Booth</span>
+        </p>
+        <p class="infra-card-body">
+          <span class="kr">60cm 이중 방음 도어로 외부 간섭을 완전 차단. 안정적이고 집중된 레코딩 환경을 제공합니다.</span>
+          <span class="en">60cm double-soundproofed doors eliminate external interference, delivering a stable and focused recording environment.</span>
+        </p>
+      </div>
+      <!-- 인프라 카드 2: 정밀 룸 어쿠스틱 -->
+      <div class="infra-card reveal reveal-d2">
+        <div class="infra-icon">🎛</div>
+        <p class="infra-card-title">
+          <span class="kr">정밀 룸 어쿠스틱</span>
+          <span class="en">Precision Room Acoustics</span>
+        </p>
+        <p class="infra-card-body">
+          <span class="kr">천장 디퓨저·벽면 트랩·부스 흡음으로 반사음을 정밀 제어. 왜곡 없는 정확한 사운드를 재현합니다.</span>
+          <span class="en">Ceiling diffusers, wall traps, and booth absorption control reflections precisely for accurate, distortion-free reproduction.</span>
+        </p>
+      </div>
+      <!-- 인프라 카드 3: 독립 접지 전원 -->
+      <div class="infra-card reveal reveal-d3">
+        <div class="infra-icon">⚡</div>
+        <p class="infra-card-title">
+          <span class="kr">독립 접지 전원</span>
+          <span class="en">Dedicated Ground Power</span>
+        </p>
+        <p class="infra-card-body">
+          <span class="kr">전기 노이즈·험을 완전 배제. 고감도 진공관·아날로그 장비에 안정적인 전원을 공급해 최고의 신호 퀄리티를 유지합니다.</span>
+          <span class="en">Fully eliminates electrical noise and hum, providing stable power for sensitive tube and analog gear at the highest signal quality.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     08 애트머스피어 + 갤러리 — 공간/인테리어 (슬라이드 17/30, 20/30)
+============================================================ -->
+<section id="atmosphere" class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">07</span>
+      <span class="section-label">ATMOSPHERE</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="atm-layout">
+      <div class="reveal reveal-d1">
+        <img src="images/18-31.png" alt="아카리 사운드 컨트롤룸 내부" class="atm-img-wrap" style="width:100%;height:560px;object-fit:cover;object-position:bottom;border-radius:var(--radius);" loading="lazy">
+      </div>
+      <div class="reveal reveal-d2">
+        <h2 class="section-title">
+          <span class="kr">작업의 태도는<br><em>공간이 만든다</em></span>
+          <span class="en">The Space Shapes<br><em>How You Work</em></span>
+        </h2>
+        <div class="divider"></div>
+        <p style="font-size:0.9rem;color:var(--text-sub);line-height:2;margin-bottom:var(--sp-md)">
+          <span class="kr">공간은 사람의 집중도와 감정, 그리고 작업의 태도에 영향을 주고, 그 변화는 자연스럽게 결과물에 담깁니다.</span>
+          <span class="en">Space shapes focus, emotion, and the attitude toward work — and those qualities naturally become part of the final result.</span>
+        </p>
+        <div class="atm-investment">
+          <span class="kr">아카리 스튜디오는 <strong>최고의 장비를 갖추는 것은 기본</strong>이라 생각했고, 좋은 작업 환경이 좋은 결과물을 만든다고 믿기에 <strong>인테리어에만 약 1,740만원을 투자</strong>하였습니다.</span>
+          <span class="en">At Akari, <strong>premium gear is the baseline</strong>. We believe a great environment produces great results — so we invested <strong>over ₩17,400,000 in the studio interior alone</strong>.</span>
+        </div>
+        <p class="atm-materials reveal reveal-d3">
+          <span class="kr">Texture · 크레스트 레더 · 폭스 퍼 · 송치 우븐 · 부클레 · 메탈 &nbsp;/&nbsp; Lightscape · Philips Hue Gradient · Louis Poulsen · Artemide</span>
+          <span class="en">Texture · Crest leather · Fox fur · Songchi woven · Boucle · Metal &nbsp;/&nbsp; Lightscape · Philips Hue Gradient · Louis Poulsen · Artemide</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- 갤러리 — 다양한 조명 분위기 사진 (슬라이드 20/30) -->
+    <div class="gallery-grid reveal">
+      <div class="gallery-cell-full">
+        <img src="images/21-31.png" alt="아카리 사운드 스튜디오 조명 분위기" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     09 장비 리스트 — Gear List (슬라이드 21/30)
+============================================================ -->
+<section id="gear" class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">08</span>
+      <span class="section-label kr">장비 리스트</span>
+      <span class="section-label en">Gear List</span>
+      <span class="section-rule"></span>
+    </div>
+    <h2 class="section-title reveal">Gear List</h2>
+    <div class="divider"></div>
+    <div class="gear-categories">
+      <!-- 녹음 체인 카테고리 -->
+      <div class="reveal reveal-d1">
+        <p class="gear-cat-title">Recording Chain</p>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Universal Audio UA Bock 251</span><span class="gear-item-note">모던 빈티지 튜브 콘덴서 마이크</span></div>
+          <span class="gear-item-price">₩9,990,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Neumann U87 Ai Studio Set</span><span class="gear-item-note">전 세계 레코딩 스탠다드 마이크</span></div>
+          <span class="gear-item-price">₩6,480,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Shure SM7B</span><span class="gear-item-note">다이나믹 마이크</span></div>
+          <span class="gear-item-price">₩720,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">AMS Neve 1073 SPX</span><span class="gear-item-note">밀도감과 컬러를 더하는 프리앰프</span></div>
+          <span class="gear-item-price">₩3,198,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">TUBE-TECH CL 1B</span><span class="gear-item-note">자연스러운 진공관 컴프레서</span></div>
+          <span class="gear-item-price">₩7,980,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Prism Sound Lyra 2</span><span class="gear-item-note">하이엔드 AD/DA 컨버터</span></div>
+          <span class="gear-item-price">₩4,320,000</span>
+        </div>
+      </div>
+      <!-- 모니터링 + 케이블 카테고리 -->
+      <div class="reveal reveal-d2">
+        <p class="gear-cat-title">Monitoring</p>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Amphion Create Two18 | Amp700</span><span class="gear-item-note">메이저 레코드의 기준이 된 모니터</span></div>
+          <span class="gear-item-price">₩13,980,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">DMSD 60 PRO</span><span class="gear-item-note">프로 스피커 디커플링 시스템</span></div>
+          <span class="gear-item-price">₩1,248,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Beyerdynamic DT 770 Pro X Limited</span><span class="gear-item-note">레퍼런스 헤드폰</span></div>
+          <span class="gear-item-price">₩349,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Audio Technica ATH-M50X</span><span class="gear-item-note">모니터링 헤드폰</span></div>
+          <span class="gear-item-price">₩229,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Sonarworks SoundID Reference</span><span class="gear-item-note">정밀 룸 캘리브레이션</span></div>
+          <span class="gear-item-price">₩479,000</span>
+        </div>
+        <p class="gear-cat-title" style="margin-top:var(--sp-md)">Cables &amp; Connectivity</p>
+        <div class="gear-row">
+          <div><span class="gear-item-name">FURMAN PL-8C E</span><span class="gear-item-note">전원 컨디셔너</span></div>
+          <span class="gear-item-price">₩618,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Van Damme / MOGAMI GOLD XLR</span><span class="gear-item-note">아웃보드·스피커 연결용 케이블</span></div>
+          <span class="gear-item-price">₩510,000</span>
+        </div>
+        <div class="gear-row">
+          <div><span class="gear-item-name">Pop Audio POP FILTER STUDIO SET</span><span class="gear-item-note">팝 필터</span></div>
+          <span class="gear-item-price">₩169,000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     10 요금 — 이벤트 할인 요금 카드 (슬라이드 22/30, 23/30)
+============================================================ -->
+<section id="pricing" class="section section-warm">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">09</span>
+      <span class="section-label kr">요금 안내</span>
+      <span class="section-label en">Pricing</span>
+      <span class="section-rule"></span>
+    </div>
+    <span class="pricing-event-badge reveal">
+      <span class="kr">🎙 26년 오픈할인 + 무료 보컬 디렉팅 · 매달 선착순 3팀 한정</span>
+      <span class="en">🎙 '26 Open Discount + Free Vocal Directing · First 3 teams/month</span>
+    </span>
+    <div class="pricing-grid">
+      <!-- Standard Chain 카드 -->
+      <div class="price-card reveal reveal-d1">
+        <div class="price-card-head">
+          <p class="price-card-tier">Standard Chain</p>
+          <p class="price-card-name">Neumann U87 Ai</p>
+        </div>
+        <div class="price-card-body">
+          <div class="price-row">
+            <div>
+              <p class="price-row-label kr">1시간</p>
+              <p class="price-row-label en">1 Hour</p>
+              <p class="price-row-sub kr">DAW 오퍼레이팅·엔지니어링 포함</p>
+              <p class="price-row-sub en">DAW operating &amp; engineering included</p>
+            </div>
+            <div class="price-row-amount"><span class="price-current">₩60,000</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-row-label">1PRO <span style="font-size:0.75rem;color:var(--text-sub)">(3H 30M)</span></p>
+              <p class="price-row-sub kr">DAW 오퍼레이팅·엔지니어링 포함</p>
+              <p class="price-row-sub en">DAW operating &amp; engineering included</p>
+            </div>
+            <div class="price-row-amount">
+              <span class="price-original">₩210,000</span>
+              <span class="price-current">₩150,000<span class="price-badge discount">DISCOUNT</span></span>
+            </div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-row-label kr">보컬 디렉팅 <span style="font-size:0.72rem;color:var(--steel)">매달 선착순 3팀</span></p>
+              <p class="price-row-label en">Vocal Directing <span style="font-size:0.72rem;color:var(--steel)">First 3/month</span></p>
+              <p class="price-row-sub kr">테이크·톤/리듬·발성/발음 디렉</p>
+              <p class="price-row-sub en">Take · Tone · Pronunciation directing</p>
+            </div>
+            <div class="price-row-amount">
+              <span class="price-original">₩200,000</span>
+              <span class="price-current free">₩0<span class="price-badge free-tag">FREE</span></span>
+            </div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-row-label kr">성우·나레이션 1시간</p>
+              <p class="price-row-label en">Voice Acting · Narration 1H</p>
+            </div>
+            <div class="price-row-amount"><span class="price-current">₩100,000</span></div>
+          </div>
+        </div>
+        <p class="price-footnote">
+          <span class="kr">* 세팅/사운드 체크/휴식 포함 &nbsp;|&nbsp; 보컬·단일 악기 (드럼 불가)<br>* 오픈 할인 이벤트는 별도 공지 없이 종료될 수 있습니다</span>
+          <span class="en">* Includes setup, sound check &amp; rest &nbsp;|&nbsp; Vocals &amp; single instrument (no drums)<br>* Open discount event may end without prior notice</span>
+        </p>
+      </div>
+      <!-- Signature Chain 카드 -->
+      <div class="price-card reveal reveal-d2">
+        <div class="price-card-head">
+          <p class="price-card-tier">Signature Chain</p>
+          <p class="price-card-name">UA Bock 251</p>
+        </div>
+        <div class="price-card-body">
+          <div class="price-row">
+            <div>
+              <p class="price-row-label kr">1시간</p>
+              <p class="price-row-label en">1 Hour</p>
+              <p class="price-row-sub kr">DAW 오퍼레이팅·엔지니어링 포함</p>
+              <p class="price-row-sub en">DAW operating &amp; engineering included</p>
+            </div>
+            <div class="price-row-amount"><span class="price-current">₩80,000</span></div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-row-label">1PRO <span style="font-size:0.75rem;color:var(--text-sub)">(3H 30M)</span></p>
+              <p class="price-row-sub kr">DAW 오퍼레이팅·엔지니어링 포함</p>
+              <p class="price-row-sub en">DAW operating &amp; engineering included</p>
+            </div>
+            <div class="price-row-amount">
+              <span class="price-original">₩280,000</span>
+              <span class="price-current">₩210,000<span class="price-badge discount">DISCOUNT</span></span>
+            </div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-row-label kr">보컬 디렉팅 <span style="font-size:0.72rem;color:var(--steel)">매달 선착순 3팀</span></p>
+              <p class="price-row-label en">Vocal Directing <span style="font-size:0.72rem;color:var(--steel)">First 3/month</span></p>
+              <p class="price-row-sub kr">테이크·톤/리듬·발성/발음 디렉</p>
+              <p class="price-row-sub en">Take · Tone · Pronunciation directing</p>
+            </div>
+            <div class="price-row-amount">
+              <span class="price-original">₩200,000</span>
+              <span class="price-current free">₩0<span class="price-badge free-tag">FREE</span></span>
+            </div>
+          </div>
+          <div class="price-row">
+            <div>
+              <p class="price-row-label kr">성우·나레이션 1시간</p>
+              <p class="price-row-label en">Voice Acting · Narration 1H</p>
+            </div>
+            <div class="price-row-amount"><span class="price-current">₩100,000</span></div>
+          </div>
+        </div>
+        <p class="price-footnote">
+          <span class="kr">* 세팅/사운드 체크/휴식 포함 &nbsp;|&nbsp; 보컬·단일 악기 (드럼 불가)<br>* 오픈 할인 이벤트는 별도 공지 없이 종료될 수 있습니다</span>
+          <span class="en">* Includes setup, sound check &amp; rest &nbsp;|&nbsp; Vocals &amp; single instrument (no drums)<br>* Open discount event may end without prior notice</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     11 다회차 세션 패키지 (슬라이드 24/30)
+============================================================ -->
+<section id="packages" class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">10</span>
+      <span class="section-label kr">다회차 세션 패키지</span>
+      <span class="section-label en">Multi Session Package</span>
+      <span class="section-rule"></span>
+    </div>
+    <h2 class="section-title reveal">
+      <span class="kr">EP 작업, 싱글 발매, 정기적인 커버곡 업로드 등<br><em>지속적인 작업이 필요한 아티스트에게</em></span>
+      <span class="en">For artists who need <em>ongoing sessions</em> — EP releases, singles, regular cover uploads</span>
+    </h2>
+    <div class="pkg-grid">
+      <!-- Package A — Standard Chain -->
+      <div class="pkg-card reveal reveal-d1">
+        <div class="pkg-card-head">
+          <span class="pkg-letter">A</span>
+          <p class="pkg-chain-label">Package A</p>
+          <p class="pkg-chain-name">Akari Standard Chain</p>
+        </div>
+        <div class="pkg-sessions">
+          <div class="pkg-session-row">
+            <div><p class="pkg-session-label">1 SESSION</p></div>
+            <p class="pkg-session-price">₩150,000</p>
+          </div>
+          <div class="pkg-session-row">
+            <div>
+              <p class="pkg-session-label">3 SESSIONS</p>
+              <p class="pkg-session-per kr">회당 140,000원</p>
+              <p class="pkg-session-per en">₩140,000 / session</p>
+            </div>
+            <p class="pkg-session-price">₩420,000</p>
+          </div>
+          <div class="pkg-session-row">
+            <div>
+              <p class="pkg-session-label">5 SESSIONS</p>
+              <p class="pkg-session-per kr">회당 135,000원</p>
+              <p class="pkg-session-per en">₩135,000 / session</p>
+            </div>
+            <p class="pkg-session-price">₩675,000</p>
+          </div>
+          <div class="pkg-session-row">
+            <div>
+              <p class="pkg-session-label">8 SESSIONS</p>
+              <p class="pkg-session-per kr">회당 130,000원</p>
+              <p class="pkg-session-per en">₩130,000 / session</p>
+            </div>
+            <p class="pkg-session-price">₩1,040,000</p>
+          </div>
+        </div>
+      </div>
+      <!-- Package B — Signature Chain -->
+      <div class="pkg-card reveal reveal-d2">
+        <div class="pkg-card-head">
+          <span class="pkg-letter">B</span>
+          <p class="pkg-chain-label">Package B</p>
+          <p class="pkg-chain-name">Akari Signature Chain</p>
+        </div>
+        <div class="pkg-sessions">
+          <div class="pkg-session-row">
+            <div><p class="pkg-session-label">1 SESSION</p></div>
+            <p class="pkg-session-price">₩210,000</p>
+          </div>
+          <div class="pkg-session-row">
+            <div>
+              <p class="pkg-session-label">3 SESSIONS</p>
+              <p class="pkg-session-per kr">회당 190,000원</p>
+              <p class="pkg-session-per en">₩190,000 / session</p>
+            </div>
+            <p class="pkg-session-price">₩570,000</p>
+          </div>
+          <div class="pkg-session-row">
+            <div>
+              <p class="pkg-session-label">5 SESSIONS</p>
+              <p class="pkg-session-per kr">회당 185,000원</p>
+              <p class="pkg-session-per en">₩185,000 / session</p>
+            </div>
+            <p class="pkg-session-price">₩925,000</p>
+          </div>
+          <div class="pkg-session-row">
+            <div>
+              <p class="pkg-session-label">8 SESSIONS</p>
+              <p class="pkg-session-per kr">회당 180,000원</p>
+              <p class="pkg-session-per en">₩180,000 / session</p>
+            </div>
+            <p class="pkg-session-price">₩1,440,000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.72rem;color:var(--text-muted);margin-top:var(--sp-md)" class="reveal">
+      <span class="kr">* 오픈 프로모션 포함가 · 조기 종료 가능</span>
+      <span class="en">* Includes open promotion pricing · may end early</span>
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     12 커버곡 + 믹싱/마스터링 요금 (슬라이드 25/30)
+============================================================ -->
+<section id="cover-pricing" class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">11</span>
+      <span class="section-label kr">커버 레코딩 · 믹싱 · 마스터링</span>
+      <span class="section-label en">Cover · Mix · Mastering</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="cover-grid">
+      <!-- 커버곡 올인원 패키지 -->
+      <div class="cover-card featured reveal reveal-d1">
+        <p class="cover-card-title kr">커버곡 레코딩 패키지</p>
+        <p class="cover-card-title en">Cover Recording Package</p>
+        <p class="cover-card-name kr">Bock 251 체인 기반 올인원!</p>
+        <p class="cover-card-name en">All-in-One on Bock 251 Chain</p>
+        <p class="cover-card-desc">
+          <span class="kr">레코딩 1PRO + 에디팅 + 튠 + 믹싱 + 마스터링<br>* 초안 이후 수정 총 3회<br>* 작업 전 사운드 레퍼런스·믹싱 방향 전달 부탁드립니다</span>
+          <span class="en">Recording 1PRO + Editing + Tune + Mix + Mastering<br>* Up to 3 revisions after first draft<br>* Please share sound references &amp; mixing direction in advance</span>
+        </p>
+        <p class="cover-price-big"><span>₩510,000</span> ₩380,000</p>
+        <p style="font-size:0.7rem;color:var(--ember);margin-top:0.3rem">25% OFF</p>
+      </div>
+      <!-- 보컬 에디팅·튠 -->
+      <div class="cover-card reveal reveal-d2">
+        <p class="cover-card-title kr">보컬 에디팅 · 튠</p>
+        <p class="cover-card-title en">Vocal Editing · Tune</p>
+        <div class="cover-items">
+          <div class="cover-item-row">
+            <div>
+              <span class="kr">Vocal Tune — 보컬 메인 트랙 튠</span>
+              <span class="en">Vocal Tune — Main track</span>
+              <span class="cover-item-note kr">*코러스·더블 트랙 추가시 +₩10,000/트랙 / *박자 튠은 별도 협의</span>
+              <span class="cover-item-note en">*Chorus/double +₩10,000/track / *Beat tune: separate quote</span>
+            </div>
+            <span class="cover-item-price">₩80,000</span>
+          </div>
+          <div class="cover-item-row">
+            <div>
+              <span class="kr">에디팅 — 호흡·침·립 노이즈 제거</span>
+              <span class="en">Editing — Breath, click &amp; lip noise removal</span>
+            </div>
+            <span class="cover-item-price">₩20,000</span>
+          </div>
+        </div>
+      </div>
+      <!-- 믹싱·마스터링 -->
+      <div class="cover-card reveal reveal-d3">
+        <p class="cover-card-title kr">믹싱 · 마스터링</p>
+        <p class="cover-card-title en">Mix · Mastering</p>
+        <div class="cover-items">
+          <div class="cover-item-row">
+            <div>
+              <span class="kr">Cover Mix — 커버송 (보컬 1트랙+MR)</span>
+              <span class="en">Cover Mix — Cover song (vocal 1 track + MR)</span>
+            </div>
+            <span class="cover-item-price">₩150,000</span>
+          </div>
+          <div class="cover-item-row">
+            <div>
+              <span class="kr">Multi Track Mix</span>
+              <span class="en">Multi Track Mix</span>
+            </div>
+            <span class="cover-item-price kr">별도 문의</span>
+            <span class="cover-item-price en">On request</span>
+          </div>
+          <div class="cover-item-row">
+            <div>
+              <span class="kr">Mastering — 마스터링</span>
+              <span class="en">Mastering</span>
+            </div>
+            <span class="cover-item-price">₩50,000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     13 이벤트 — 리뷰 쓰고 할인받자 (슬라이드 26/30)
+============================================================ -->
+<section id="event" class="section section-warm">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">12</span>
+      <span class="section-label">EVENT</span>
+      <span class="section-rule"></span>
+    </div>
+    <h2 class="section-title reveal">
+      <span class="kr">리뷰쓰고 <em>할인받자</em></span>
+      <span class="en">Write a Review, <em>Get a Discount</em></span>
+    </h2>
+    <p class="event-discount-badge reveal reveal-d1">₩10,000 OFF</p>
+    <p style="text-align:center;font-size:0.85rem;color:var(--text-sub);margin-bottom:var(--sp-md)" class="reveal">
+      <span class="kr">예약 및 선결제 시 즉시 10,000원 할인</span>
+      <span class="en">Instant ₩10,000 discount upon booking &amp; prepayment</span>
+    </p>
+    <div class="event-steps">
+      <!-- 이벤트 스텝 1 -->
+      <div class="event-step reveal reveal-d1">
+        <p class="step-num">01</p>
+        <p class="step-title kr">인스타 팔로우</p>
+        <p class="step-title en">Follow on Instagram</p>
+        <p class="step-desc kr">@AKARISOUNDKR 팔로우 후 예약 문의 시 "리뷰 이벤트 참여합니다" + 팔로우 캡처 첨부 → 예약 확정 &amp; 선결제 시 즉시 ₩10,000 할인</p>
+        <p class="step-desc en">Follow @AKARISOUNDKR, send "I'll join the review event" + screenshot when booking → Instant ₩10,000 off at confirmation &amp; prepayment</p>
+      </div>
+      <!-- 이벤트 스텝 2 -->
+      <div class="event-step reveal reveal-d2">
+        <p class="step-num">02</p>
+        <p class="step-title kr">당일 스토리 업로드</p>
+        <p class="step-title en">Story Upload on Recording Day</p>
+        <p class="step-desc kr">스튜디오 사진 또는 영상 촬영 후 인스타 스토리 태그 (@akarisoundkr) 후 업로드</p>
+        <p class="step-desc en">Take a photo or video at the studio, then upload to Instagram Story with tag @akarisoundkr</p>
+      </div>
+      <!-- 이벤트 스텝 3 -->
+      <div class="event-step reveal reveal-d3">
+        <p class="step-num">03</p>
+        <p class="step-title kr">댓글 후기 작성</p>
+        <p class="step-title en">Leave a Comment Review</p>
+        <p class="step-desc kr">녹음 열심히 하고 이벤트 게시글에 간단한 댓글 후기 작성</p>
+        <p class="step-desc en">Give it your all in the session, then leave a short comment review on the event post</p>
+      </div>
+    </div>
+    <div class="event-notice reveal reveal-d4">
+      <span class="kr">* 본 이벤트는 리뷰 이벤트 참여를 약속해주시는 분들께 선할인을 제공하는 이벤트입니다.<br>* 스토리 태그 및 댓글 후기는 꼭 녹음 당일 완료해 주세요.</span>
+      <span class="en">* This event provides an upfront discount to participants who commit to leaving a review.<br>* Story tag and comment review must be completed on the day of recording.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     14 고객 후기 — 11개 리뷰 카드 (이름/아바타 익명 처리)
+============================================================ -->
+<section id="reviews" class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">13</span>
+      <span class="section-label kr">실제 클라이언트 후기</span>
+      <span class="section-label en">Client Reviews</span>
+      <span class="section-rule"></span>
+    </div>
+    <h2 class="section-title reveal">
+      <span class="kr">후기가 <em>검증합니다</em></span>
+      <span class="en">Proven by <em>Real Voices</em></span>
+    </h2>
+    <div class="reviews-grid">
+      <!-- 리뷰 카드 01 -->
+      <div class="review-card reveal reveal-d1">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026.06.18</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">중요한 곡 작업할때마다 감독님과 함께 작업하면서 늘 감사함이 많고요, 디렉팅, 소스셀렉 등 실력적으로 정말 수준이 높으십니다. 새로 구비해두신 마이크와 기존의 노이만 마이크를 비교했을 때 취향에 따른 호불호 차이가 아닌 제급 자체의 차이가 많이 나는걸 느꼈습니다. 이번에도 많은 도움을 받았습니다. 감사합니다, 곧 또 뵙겠습니다 ^^</p>
+      </div>
+      <!-- 리뷰 카드 02 -->
+      <div class="review-card reveal reveal-d2">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026.06.19</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">저번에 만족스러운 결과물과 수준높으신 엔지니어님을 믿고 이번에 두번째 방문해서 녹음했는데, 요청사항이 많았음에도 끝까지 집중력 흐트러지지 않고 녹음을 받아주셨고 그 덕에 진짜 만족을 넘어선 200프로 뽑아내주십니다. 앞으로 여기 스튜디오를 고정으로 다니면서 자주 뵐 예정입니다! ☆☆</p>
+      </div>
+      <!-- 리뷰 카드 03 -->
+      <div class="review-card reveal reveal-d3">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026.03.12</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">여러분 처청매수하세요!! 오늘 3시간반동안 너무나 즐겁고 유익한 시간이었어요🎵 처음에 긴장 많이 한다고 하니까 노래 부를때마다 무한격려를 해주셔서 덕분에 신나게 갔습니다😂 중간중간 디렉 봐주시는게 정말 수준이 높아요! 무엇보다 엔지니어분이 음악에 정말 진심이어서 믿고 맡기셔도 될 것 같아요!</p>
+      </div>
+      <!-- 리뷰 카드 04 -->
+      <div class="review-card reveal reveal-d1">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026.07.01</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">감독님 믿고 또 방문했는데 이번에도 대만족!!! 새로 이전한 스튜디오 들어갈 때부터 분위기 너무 미쳤어요. 아이돌들이 쓰는 마이크라는데 원래 쓰던 U87과는 확실히 차이가 느껴지고, 제 목소리가 훨씬 부드럽고 기분 좋게 살아나는 거 같았어요. 혼자하면 절대 이런 결과물이 안 나올텐데 항상 기대 이상으로 놀랍습니다!</p>
+      </div>
+      <!-- 리뷰 카드 05~11 — 추가 리뷰 제공 시 채워질 자리 -->
+      <div class="review-card reveal reveal-d2">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">처음 녹음이었는데 정말 편안하게 진행해주셔서 감사했습니다. 장비도 훌륭하고 결과물이 너무 만족스러워요. 다음에도 꼭 또 오겠습니다!</p>
+      </div>
+      <div class="review-card reveal reveal-d3">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">전문적인 장비와 섬세한 디렉팅 덕분에 제 보컬의 새로운 면을 발견했습니다. 스튜디오 분위기도 너무 좋고 편안하게 녹음할 수 있었어요. 강력 추천합니다!</p>
+      </div>
+      <div class="review-card reveal reveal-d1">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">믹싱, 마스터링까지 패키지로 맡겼는데 결과물이 너무 깔끔하고 전문적이에요. 레퍼런스를 잘 반영해주시고 수정도 꼼꼼하게 해주셔서 너무 감사했습니다!</p>
+      </div>
+      <div class="review-card reveal reveal-d2">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">Bock 251로 녹음한 결과물이 정말 달라요. 제 목소리가 이렇게 풍부하게 나올 수 있다는 게 신기했습니다. 엔지니어분의 실력도 최고입니다!</p>
+      </div>
+      <div class="review-card reveal reveal-d3">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">스튜디오 공간이 정말 아늑하고 집중하기 좋아요. 디렉팅도 친절하고 전문적으로 해주셔서 처음이지만 전혀 어색하지 않았습니다. 좋은 결과물로 너무 만족스럽게 마무리했어요!</p>
+      </div>
+      <div class="review-card reveal reveal-d1">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">다회차 패키지로 진행 중인데 매번 퀄리티가 일정하고 높아서 너무 만족스럽습니다. 앞으로도 계속 이용할 예정이에요. 여기 스튜디오 강추합니다!</p>
+      </div>
+      <div class="review-card reveal reveal-d2">
+        <div class="review-header">
+          <div class="review-avatar" aria-hidden="true">익</div>
+          <div class="review-meta">
+            <span class="review-username" aria-hidden="true">•••••••</span>
+            <span class="review-date">2026</span>
+          </div>
+        </div>
+        <p class="review-stars">★★★★★</p>
+        <p class="review-text">커버곡 올인원 패키지로 진행했는데 레코딩부터 마스터링까지 정말 퀄리티 있게 마무리해 주셨어요. 가성비도 좋고 결과물도 너무 만족스럽습니다. 다음에 또 올게요!</p>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:var(--sp-md)" class="reveal">
+      <span class="kr">* 고객 개인정보 보호를 위해 작성자 정보는 익명으로 표시됩니다.</span>
+      <span class="en">* Reviewer identities are anonymized for privacy.</span>
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     15 공지 — 예약 안내 + 정책 (슬라이드 28/30, 29/30)
+============================================================ -->
+<section id="notice" class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">14</span>
+      <span class="section-label">NOTICE</span>
+      <span class="section-rule"></span>
+    </div>
+    <h2 class="section-title reveal">
+      <span class="kr">작업 진행 안내</span>
+      <span class="en">Booking Guide</span>
+    </h2>
+    <div class="notice-grid">
+      <!-- 좌측: 예약 3단계 프로세스 -->
+      <div class="booking-steps reveal reveal-d1">
+        <!-- 스텝 1: 예약 문의 -->
+        <div class="booking-step">
+          <div class="step-circle">1</div>
+          <div class="booking-step-content">
+            <p class="booking-step-title kr">예약 문의 (카카오톡 또는 인스타그램 DM)</p>
+            <p class="booking-step-title en">Booking Inquiry (KakaoTalk or Instagram DM)</p>
+            <div class="booking-step-body">
+              <ul>
+                <li class="kr">성함 · 희망 날짜 · 희망 시간 (예: 15:00~18:00)</li>
+                <li class="en">Name · Preferred date · Preferred time (e.g. 15:00–18:00)</li>
+                <li class="kr">작업 시간 (예: 1프로 / 총 3시간)</li>
+                <li class="en">Session length (e.g. 1PRO / 3 hrs total)</li>
+                <li class="kr">작업 종류 (앨범 녹음 / 커버 녹음 / 나레이션 / 성우 / 기타)</li>
+                <li class="en">Session type (album / cover / narration / voice acting / other)</li>
+                <li class="kr">※ 리뷰 이벤트 참여 시 인스타그램 팔로우 캡처 첨부 + "리뷰 이벤트 참여합니다" 작성</li>
+                <li class="en">※ For review event: attach Instagram follow screenshot + write "I'll join the review event"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 스텝 2: 예약 확정 -->
+        <div class="booking-step">
+          <div class="step-circle">2</div>
+          <div class="booking-step-content">
+            <p class="booking-step-title kr">예약 확정</p>
+            <p class="booking-step-title en">Booking Confirmation</p>
+            <p class="booking-step-body">
+              <span class="kr">스케줄 확인 및 조율 후 안내드리며, 전액 선입금 확인 후 예약이 최종 확정됩니다.</span>
+              <span class="en">We'll confirm the schedule and notify you. Booking is finalized upon full prepayment.</span>
+            </p>
+          </div>
+        </div>
+        <!-- 스텝 3: 작업 자료 전달 -->
+        <div class="booking-step">
+          <div class="step-circle">3</div>
+          <div class="booking-step-content">
+            <p class="booking-step-title kr">작업 자료 전달 — akarisoundkr@gmail.com</p>
+            <p class="booking-step-title en">Send Materials — akarisoundkr@gmail.com</p>
+            <div class="booking-step-body">
+              <ul>
+                <li class="kr">성함 · 연락처 · MR · 가사 · BPM</li>
+                <li class="en">Name · Contact · MR · Lyrics · BPM</li>
+                <li class="kr">MR: 48kHz / 24bit WAV 형식, 모든 스템 길이 동일 (시작점 동일)</li>
+                <li class="en">MR: 48kHz / 24bit WAV format, all stems same length (same start point)</li>
+                <li class="kr">모든 파일의 피크(클리핑) 여부를 반드시 확인해 주세요</li>
+                <li class="en">Please check all files for peak/clipping before sending</li>
+                <li class="kr">※ 가사 인쇄가 필요한 경우 예약 시 미리 말씀 부탁드립니다</li>
+                <li class="en">※ If you need lyrics printed, please let us know when booking</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 우측: 정책 블록들 -->
+      <div class="reveal reveal-d2">
+        <!-- 취소/변경 규정 -->
+        <div class="policy-block">
+          <p class="policy-title kr">예약 변경 및 취소 규정</p>
+          <p class="policy-title en">Cancellation Policy</p>
+          <table class="cancel-table">
+            <thead>
+              <tr>
+                <th class="kr">시점</th><th class="en">Timing</th>
+                <th class="kr">규정</th><th class="en">Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="kr">세션 7일 전</td><td class="en">7+ days before</td>
+                <td class="kr">100% 환불</td><td class="en">Full refund</td>
+              </tr>
+              <tr>
+                <td class="kr">세션 3~6일 전</td><td class="en">3–6 days before</td>
+                <td class="kr">50% 환불</td><td class="en">50% refund</td>
+              </tr>
+              <tr>
+                <td class="kr">세션 1~2일 전</td><td class="en">1–2 days before</td>
+                <td class="kr">환불 불가</td><td class="en">No refund</td>
+              </tr>
+              <tr>
+                <td class="kr">당일 취소 / 노쇼</td><td class="en">Same-day / No-show</td>
+                <td class="kr">환불 불가</td><td class="en">No refund</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- 주의사항 -->
+        <div class="policy-block">
+          <p class="policy-title kr">주의사항</p>
+          <p class="policy-title en">Important Notes</p>
+          <ul class="policy-list">
+            <li class="kr">스튜디오 내 음식물 반입 금지 (물·음료 허용)</li>
+            <li class="en">No food inside the studio (water/drinks allowed)</li>
+            <li class="kr">반려동물 동반 입장 불가</li>
+            <li class="en">No pets allowed</li>
+            <li class="kr">부스 내 외부 장비 연결 시 사전 문의 필수</li>
+            <li class="en">Please inquire before connecting external equipment to the booth</li>
+            <li class="kr">미성년자는 보호자 동반 또는 보호자 동의서 지참</li>
+            <li class="en">Minors must be accompanied by a guardian or bring a consent form</li>
+          </ul>
+        </div>
+        <!-- 데이터 보관 -->
+        <div class="policy-block">
+          <p class="policy-title kr">데이터 전달 · 보관</p>
+          <p class="policy-title en">Data Delivery &amp; Retention</p>
+          <ul class="policy-list">
+            <li class="kr">녹음 완료 후 원본 파일(WAV)은 당일 WeTransfer 또는 Google Drive로 전달</li>
+            <li class="en">Raw WAV files delivered on the day via WeTransfer or Google Drive</li>
+            <li class="kr">스튜디오 내부 보관: 세션 종료 후 30일</li>
+            <li class="en">In-studio retention: 30 days after session ends</li>
+            <li class="kr">믹스 · 마스터링 결과물은 작업 완료 후 48시간 이내 전달</li>
+            <li class="en">Mix/mastering deliverables sent within 48 hours of completion</li>
+          </ul>
+        </div>
+        <!-- 촬영 안내 -->
+        <div class="policy-block">
+          <p class="policy-title kr">촬영 및 촬영 대관 안내</p>
+          <p class="policy-title en">Filming Policy</p>
+          <ul class="policy-list">
+            <li class="kr">개인 SNS용 촬영 가능 (세션 방해 없는 범위 내)</li>
+            <li class="en">Personal SNS filming is allowed (as long as it doesn't disrupt the session)</li>
+            <li class="kr">스튜디오 대관 촬영(뮤직비디오, 광고 등)은 별도 문의</li>
+            <li class="en">Studio hire for video shoots (MV, ads, etc.) requires separate inquiry</li>
+            <li class="kr">촬영 대관 시 추가 조명 · 스태프 반입은 사전 협의 필수</li>
+            <li class="en">Additional lighting or crew for shoots must be arranged in advance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     16 FAQ — 자주 묻는 질문 8개 아코디언 (슬라이드 30/30)
+============================================================ -->
+<section id="faq" class="section section-alt">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">15</span>
+      <span class="section-label">FAQ</span>
+      <span class="section-rule"></span>
+    </div>
+    <h2 class="section-title reveal">
+      <span class="kr">자주 묻는 질문</span>
+      <span class="en">Frequently Asked Questions</span>
+    </h2>
+    <div class="faq-list reveal reveal-d1">
+      <!-- FAQ 아이템 01 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">악기 연주 녹음도 가능한가요?</span>
+            <span class="en">Can I record live instruments?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">현재 아카리 사운드는 보컬 녹음에 특화된 스튜디오입니다. 기타·피아노 등 악기 녹음은 별도 문의 주시면 조율해 드립니다.</span>
+            <span class="en">AkariSound is currently specialized in vocal recording. For instrument recording (guitar, piano, etc.) please inquire separately and we'll work out the details.</span>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 아이템 02 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">가이드 보컬만 녹음할 수도 있나요?</span>
+            <span class="en">Can I record just a guide vocal?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">네, 가능합니다. 가이드 녹음은 Standard 패키지로 진행하시며, 후반 믹스·마스터링은 옵션으로 추가하실 수 있습니다.</span>
+            <span class="en">Yes, absolutely. Guide vocal sessions use the Standard package, and post-production mix/mastering can be added as an option.</span>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 아이템 03 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">MR이 없어도 녹음할 수 있나요?</span>
+            <span class="en">Can I record without an MR track?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">네커플러스 환경에서 MR 없이 드라이 보컬만 녹음하는 것도 가능합니다. 사전에 알려주시면 준비해 두겠습니다.</span>
+            <span class="en">Yes, we can record dry vocals without an MR. Just let us know in advance and we'll prepare accordingly.</span>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 아이템 04 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">자체 마이크나 장비를 가져와도 되나요?</span>
+            <span class="en">Can I bring my own microphone or gear?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">개인 장비 반입은 사전 문의 후 조율 가능합니다. 스튜디오 장비와의 호환성 확인이 필요하므로 예약 시 미리 말씀해 주세요.</span>
+            <span class="en">Bringing personal equipment is possible after prior inquiry. Please let us know at the time of booking so we can check compatibility with our studio gear.</span>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 아이템 05 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">세션 도중 휴식을 취할 수 있나요?</span>
+            <span class="en">Can I take breaks during the session?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">물론입니다. 예약 시간 내에서 자유롭게 휴식하실 수 있습니다. 다만 휴식 시간도 예약 시간에 포함되므로 시간 관리에 유의해 주세요.</span>
+            <span class="en">Of course. You can take breaks freely within your booked time. Please note that break time counts toward your session, so manage your time accordingly.</span>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 아이템 06 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">믹싱·마스터링 작업 기간은 얼마나 걸리나요?</span>
+            <span class="en">How long does mixing and mastering take?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">일반적으로 작업 의뢰 후 3~7 영업일 이내에 결과물을 전달해 드립니다. 곡 수나 복잡도에 따라 변동될 수 있으며, 촉박한 마감이 있다면 예약 시 말씀해 주세요.</span>
+            <span class="en">We typically deliver within 3–7 business days of receiving your files. Timeline may vary by track count and complexity — let us know if you have a tight deadline.</span>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 아이템 07 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">주차는 가능한가요?</span>
+            <span class="en">Is parking available?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">네, 건물 내 주차장 이용이 가능합니다. 주차 요금은 고객 부담이며, 장시간 주차 시 주변 공영주차장 이용을 권장합니다.</span>
+            <span class="en">Yes, the building has a parking lot available. Parking fees are the client's responsibility; for longer stays we recommend nearby public parking.</span>
+          </div>
+        </div>
+      </div>
+      <!-- FAQ 아이템 08 -->
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-mark">Q.</span>
+          <span class="faq-q-text">
+            <span class="kr">예약 변경은 어떻게 하나요?</span>
+            <span class="en">How do I reschedule my booking?</span>
+          </span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="kr">카카오톡 또는 인스타그램 DM으로 문의 주시면 일정 조율해 드립니다. 변경은 세션 48시간 전까지 가능하며, 이후는 취소 규정이 적용됩니다.</span>
+            <span class="en">Contact us via KakaoTalk or Instagram DM and we'll adjust your schedule. Changes are accepted up to 48 hours before the session; cancellation policy applies after that.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     17 연락처 / 위치 — 주소, SNS, 예약 링크 (슬라이드 27/30)
+============================================================ -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-eyebrow reveal">
+      <span class="section-num">16</span>
+      <span class="section-label kr">연락처 · 위치</span>
+      <span class="section-label en">Contact · Location</span>
+      <span class="section-rule"></span>
+    </div>
+    <div class="contact-layout">
+      <!-- 좌측: 주소 + 연락 링크 -->
+      <div class="reveal reveal-d1">
+        <p class="contact-address">
+          <span class="kr"><strong>서울특별시 강남구</strong><br>양재동 362-4, 5층</span>
+          <span class="en"><strong>362-4 Yangjae-dong,</strong><br>Gangnam-gu, Seoul, 5F</span>
+        </p>
+        <span class="contact-parking">
+          <span>🚗</span>
+          <span class="kr">주차 가능</span>
+          <span class="en">Parking Available</span>
+        </span>
+        <div class="contact-links">
+          <!-- 카카오톡 -->
+          <a href="https://open.kakao.com/o/sWhOhcCi" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon">💬</span>
+            <div>
+              <span class="contact-link-label">KakaoTalk</span>
+              <span class="contact-link-value kr">카카오 채널 · 예약 문의</span>
+              <span class="contact-link-value en">KakaoTalk Channel · Book Now</span>
+            </div>
+          </a>
+          <!-- 인스타그램 -->
+          <a href="https://www.instagram.com/akarisoundkr" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-icon">📸</span>
+            <div>
+              <span class="contact-link-label">Instagram</span>
+              <span class="contact-link-value">@akarisoundkr</span>
+            </div>
+          </a>
+          <!-- 이메일 -->
+          <a href="mailto:akarisoundkr@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            <div>
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">akarisoundkr@gmail.com</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <!-- 우측: 지도 (향후 카카오/구글 지도 임베드 예정) -->
+      <div class="reveal reveal-d2">
+        <div class="map-placeholder">
+          <span class="kr">지도 임베드 예정<br>(구글 지도 또는 카카오 지도)</span>
+          <span class="en">Map embed coming soon<br>(Google Maps or Kakao Maps)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     푸터 — 로고, 저작권, 링크
+============================================================ -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-logo-wrap">
+      <svg viewBox="0 0 42 52" fill="none" width="24" height="30" aria-hidden="true">
+        <line x1="8"  y1="48" x2="24" y2="6"  stroke="#E4CFA7" stroke-width="2" stroke-linecap="round"/>
+        <line x1="28" y1="50" x2="28" y2="24" stroke="#E4CFA7" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="31" cy="16" r="5" fill="#C45228"/>
+      </svg>
+      <p class="footer-copy">© 2026 Akari Sound. All rights reserved.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer links">
+      <a href="#about">   <span class="kr">스튜디오</span><span class="en">Studio</span></a>
+      <a href="#pricing"> <span class="kr">요금</span>   <span class="en">Pricing</span></a>
+      <a href="#notice">  <span class="kr">공지</span>   <span class="en">Notice</span></a>
+      <a href="#faq">     FAQ</a>
+      <a href="#contact"> <span class="kr">예약</span>   <span class="en">Book</span></a>
+    </nav>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     JavaScript — 언어 전환 / 테마 토글 / 내비게이션 / FAQ / 스크롤 리빌
+============================================================ -->
+<script src="script.js"></script>
+
+</body>
+</html>
