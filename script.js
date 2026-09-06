@@ -97,7 +97,12 @@ window.addEventListener('load', () => {
   // 카드 한 세트 복제 → 끝에 붙여서 끊김 없는 루프 구성
   const origCards = Array.from(track.children);
   const origCount = origCards.length;
-  origCards.forEach(c => track.appendChild(c.cloneNode(true)));
+  origCards.forEach(c => {
+    const clone = c.cloneNode(true);
+    clone.classList.remove('reveal', 'reveal-d1', 'reveal-d2', 'reveal-d3');
+    clone.classList.add('visible');
+    track.appendChild(clone);
+  });
 
   // 한 세트 너비 기준으로 스크롤 시간 계산 (px/s 속도 고정)
   function start() {
