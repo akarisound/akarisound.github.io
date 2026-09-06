@@ -88,102 +88,25 @@ window.addEventListener('load', () => {
 })();
 
 // -------------------------------------------------------
-// 리뷰 캐러셀 — 자동 순환 슬라이더
+// 리뷰 캐러셀 — 연속 무한 스크롤
 // -------------------------------------------------------
 (function() {
   const track = document.querySelector('.reviews-track');
   if (!track) return;
 
-  const cards = Array.from(track.children);
-  const gap = 24;
-  let current = 0;
-  let autoplay;
-  let isDragging = false;
-  let dragStartX = 0;
-  let dragStartOffset = 0;
+  // 카드 한 세트 복제 → 끝에 붙여서 끊김 없는 루프 구성
+  Array.from(track.children).forEach(c => track.appendChild(c.cloneNode(true)));
 
-  // 원활한 무한 루프를 위해 앞뒤로 카드 복제
-  cards.forEach(c => track.appendChild(c.cloneNode(true)));
-  cards.forEach(c => track.insertBefore(c.cloneNode(true), track.firstChild));
-
-  const allCards = () => Array.from(track.children);
-  const cardWidth = () => allCards()[0].offsetWidth + gap;
-  const total = cards.length;
-
-  function getOffset(index) {
-    return (index + total) * cardWidth();
+  // 한 세트 너비 기준으로 스크롤 시간 계산 (px/s 속도 고정)
+  function start() {
+    const setWidth = track.scrollWidth / 2;
+    const speed = 80; // px per second — 높을수록 빠름
+    const duration = setWidth / speed;
+    track.style.animationDuration = duration + 's';
+    track.classList.add('scrolling');
   }
 
-  function goTo(index, animated) {
-    track.style.transition = animated ? 'transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)' : 'none';
-    track.style.transform = `translateX(-${getOffset(index)}px)`;
-    current = index;
-  }
-
-  // 초기 위치 (복제본 중간 세트부터 시작)
-  goTo(0, false);
-
-  // 무한 루프 처리 — 트랜지션 끝나면 위치 점프
-  track.addEventListener('transitionend', () => {
-    if (current >= total) goTo(current - total, false);
-    else if (current < 0)  goTo(current + total, false);
-  });
-
-  function next() { goTo(current + 1, true); }
-  function prev() { goTo(current - 1, true); }
-
-  function startAutoplay() {
-    autoplay = setInterval(next, 4000);
-  }
-  function stopAutoplay() {
-    clearInterval(autoplay);
-  }
-
-  startAutoplay();
-
-  // 마우스 드래그로 수동 조작
-  const carousel = document.querySelector('.reviews-carousel');
-  carousel.addEventListener('mousedown', e => {
-    isDragging = true;
-    dragStartX = e.clientX;
-    dragStartOffset = current;
-    stopAutoplay();
-    track.style.transition = 'none';
-  });
-  window.addEventListener('mousemove', e => {
-    if (!isDragging) return;
-    const diff = dragStartX - e.clientX;
-    track.style.transform = `translateX(-${getOffset(dragStartOffset) + diff}px)`;
-  });
-  window.addEventListener('mouseup', e => {
-    if (!isDragging) return;
-    isDragging = false;
-    const diff = e.clientX - dragStartX;
-    if (diff < -60)      goTo(dragStartOffset + 1, true);
-    else if (diff > 60)  goTo(dragStartOffset - 1, true);
-    else                 goTo(dragStartOffset, true);
-    startAutoplay();
-  });
-
-  // 터치 지원
-  carousel.addEventListener('touchstart', e => {
-    dragStartX = e.touches[0].clientX;
-    dragStartOffset = current;
-    stopAutoplay();
-  }, { passive: true });
-  carousel.addEventListener('touchend', e => {
-    const diff = e.changedTouches[0].clientX - dragStartX;
-    if (diff < -40)      goTo(dragStartOffset + 1, true);
-    else if (diff > 40)  goTo(dragStartOffset - 1, true);
-    else                 goTo(dragStartOffset, true);
-    startAutoplay();
-  });
-
-  // 섹션 밖으로 나가면 자동재생 재개
-  carousel.addEventListener('mouseleave', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    goTo(dragStartOffset, true);
-    startAutoplay();
-  });
+  // 폰트·이미지 로드 후 너비 재계산
+  if (document.readyState === 'complete') { start(); }
+  else { window.addEventListener('load', start); }
 })();
