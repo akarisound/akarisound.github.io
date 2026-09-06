@@ -1197,6 +1197,10 @@ body.lang-en .en { display: revert; }
   color: var(--text-sub);
   line-height: 1.85;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* ============================================================
