@@ -95,13 +95,18 @@ window.addEventListener('load', () => {
   if (!track) return;
 
   // 카드 한 세트 복제 → 끝에 붙여서 끊김 없는 루프 구성
-  Array.from(track.children).forEach(c => track.appendChild(c.cloneNode(true)));
+  const origCards = Array.from(track.children);
+  const origCount = origCards.length;
+  origCards.forEach(c => track.appendChild(c.cloneNode(true)));
 
   // 한 세트 너비 기준으로 스크롤 시간 계산 (px/s 속도 고정)
   function start() {
-    const setWidth = track.scrollWidth / 2;
-    const speed = 80; // px per second — 높을수록 빠름
+    // 첫 번째 복제 카드의 offsetLeft = 정확한 한 세트 너비
+    const firstClone = track.children[origCount];
+    const setWidth = firstClone.offsetLeft;
+    const speed = 80;
     const duration = setWidth / speed;
+    track.style.setProperty('--scroll-px', `-${setWidth}px`);
     track.style.animationDuration = duration + 's';
     track.classList.add('scrolling');
   }

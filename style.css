@@ -1147,7 +1147,7 @@ body.lang-en .en { display: revert; }
 }
 @keyframes reviews-scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(var(--scroll-px, -50%)); }
 }
 .reviews-grid {
   display: grid;
