@@ -101,12 +101,16 @@ window.addEventListener('load', () => {
 
   // 한 세트 너비 기준으로 스크롤 시간 계산 (px/s 속도 고정)
   function start() {
-    // 첫 번째 복제 카드의 offsetLeft = 정확한 한 세트 너비
     const firstClone = track.children[origCount];
     const setWidth = firstClone.offsetLeft;
     const speed = 80;
     const duration = setWidth / speed;
-    track.style.setProperty('--scroll-px', `-${setWidth}px`);
+
+    // var() in @keyframes is discrete in some browsers — inject exact px value
+    const styleEl = document.createElement('style');
+    styleEl.textContent = `@keyframes reviews-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-${setWidth}px); } }`;
+    document.head.appendChild(styleEl);
+
     track.style.animationDuration = duration + 's';
     track.classList.add('scrolling');
   }
