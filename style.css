@@ -1149,9 +1149,6 @@ body.lang-en .en { display: revert; }
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-.reviews-carousel:hover .reviews-track {
-  animation-play-state: paused;
-}
 .reviews-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
