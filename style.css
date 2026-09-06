@@ -1155,6 +1155,11 @@ body.lang-en .en { display: revert; }
   gap: var(--sp-sm);
   margin-top: var(--sp-lg);
 }
+.reviews-track .review-card.reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
 .review-card {
   flex: 0 0 340px;
   background: var(--bg-card);
