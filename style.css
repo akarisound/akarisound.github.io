@@ -1137,10 +1137,13 @@ body.lang-en .en { display: revert; }
 .reviews-track {
   display: flex;
   gap: var(--sp-md);
+  width: max-content;
   will-change: transform;
 }
 .reviews-track.scrolling {
-  animation: reviews-scroll linear infinite;
+  animation-name: reviews-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 @keyframes reviews-scroll {
   0%   { transform: translateX(0); }
